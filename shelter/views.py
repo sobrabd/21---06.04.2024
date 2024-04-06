@@ -48,10 +48,7 @@ class DogCreateView(CreateView):
         dog = form.save()
         dog.slug = slugify(f"{dog.name} {dog.breed.name}")
         dog.save()
-        return super().form_valid(dog)
-    
-    def get_success_url(self) -> str:
-        return super().get_success_url()
+        return HttpResponseRedirect(str(self.success_url))
 
   
 class DogDetailView(DetailView):
