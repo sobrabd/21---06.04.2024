@@ -9,6 +9,7 @@ class Dog(models.Model):
     last_update_date = models.DateField(auto_now=True, null=True, blank=True)
     creation_date = models.DateField(auto_now_add=True, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    slug = models.SlugField(unique=True)
 
     class Meta:
         verbose_name = "Собака"
